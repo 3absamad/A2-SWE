@@ -1,8 +1,8 @@
 package app;
 
-import view.*;
-import model.UserAccount;
 import java.util.Scanner;
+import model.UserAccount;
+import view.*;
 
 public class Main {
 
