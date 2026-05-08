@@ -1,11 +1,34 @@
 package controle;
 
+import java.util.List;
 import model.Transaction;
 import repo.DatabaseManager;
-import java.util.List;
+
+/**
+ * Coordinates the full lifecycle of adding a new transaction.
+ * Validates the amount against the current budget limit,
+ * saves the transaction to storage, and returns a result message.
+ *
+ * @author Omar Abdelsamad Hassan
+ * @version 1.0
+ */
 
 public class TransactionController {
+
+    /** Database manager for reading budgets and saving transactions. */
+    
     private DatabaseManager db = new DatabaseManager();
+
+    /**
+     * Validates and saves a new financial transaction.
+     * Checks the transaction amount against the current budget limit.
+     * Saves to persistent storage if validation passes.
+     *
+     * @param amount   the monetary value of the transaction
+     * @param category the spending category (e.g. Food, Transport)
+     * @param date     the date of the transaction (dd-mm-yyyy)
+     * @return a success message or a budget warning string
+     */
 
     public String addTransaction(double amount, String category, String date) {
 

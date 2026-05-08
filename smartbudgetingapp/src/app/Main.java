@@ -4,10 +4,26 @@ import java.util.Scanner;
 import model.UserAccount;
 import view.*;
 
+/**
+ * Entry point for the Smart Budget App.
+ * Manages the main menu loop and routes the user
+ * to the correct screen based on their choice.
+ * Holds the currently logged-in user as a static field.
+ *
+ * @author Omar Abdelsamad Hassan
+ * @version 1.0
+ */
+
 public class Main {
 
+    /** The currently logged-in user. Null if no user is logged in. */
+    
     public static UserAccount currentUser = null;
 
+    /**
+     * Main method — launches the application and runs the menu loop.
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 

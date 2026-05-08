@@ -1,5 +1,13 @@
 package model;
 
+/**
+ * Represents the user's monthly spending limit.
+ * Stores a single limit value used to validate transactions.
+ *
+ * @author Omar Abdelsamad Hassan
+ * @version 1.0
+ */
+
 public class Budget {
     private double limit;
 

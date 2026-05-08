@@ -1,5 +1,13 @@
 package model;
 
+/**
+ * Represents a savings goal set by the user.
+ * Stores the goal name and the target amount to save.
+ *
+ * @author Omar Abdelsamad Hassan 
+ * @version 1.0
+ */
+
 public class Goal {
     private String goalName;
     private double targetAmount;

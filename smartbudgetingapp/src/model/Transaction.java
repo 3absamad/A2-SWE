@@ -1,5 +1,13 @@
 package model;
 
+/**
+ * Represents a single financial transaction.
+ * Stores the amount, category, and date of the transaction.
+ *
+ * @author Omar Abdelsamad Hassan
+ * @version 1.0
+ */
+
 public class Transaction {
     private double amount;
     private String category;
