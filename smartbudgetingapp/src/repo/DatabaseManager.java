@@ -44,20 +44,26 @@ public class DatabaseManager {
      * @param newPass  the updated password
      */
 
-    public void updateUserSettings(String oldEmail, String newName, String newEmail, String newPass) {
+    public boolean updateUserSettings(String oldEmail, String newName, String newEmail, String newPass) {
         List<String> users = getAllUsers();
+        boolean userFound = false;
+
         try (FileWriter writer = new FileWriter("users.txt", false)) {
             for (String line : users) {
                 String[] data = line.split(",");
                 if (data.length > 1 && data[1].equals(oldEmail)) {
                     writer.write(newName + "," + newEmail + "," + newPass + "\n");
+                    userFound = true;
+
                 } else {
                     writer.write(line + "\n");
                 }
             }
         } catch (IOException e) {
             System.out.println("Error updating settings.");
+            return false;
         }
+        return userFound;
     }
 
     /**

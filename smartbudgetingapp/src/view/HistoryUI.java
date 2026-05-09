@@ -62,15 +62,12 @@ public class HistoryUI {
                 break;
         }
 
-        List<String> history = controller.getTransactionHistory();
-
-        if (history.isEmpty()) {
-            System.out.println("No transactions found.");
-        } else {
-            System.out.println(String.format("%-15s | %-15s | %-15s", "Amount", "Category", "Date"));
-            System.out.println("----------------------------------------------");
-            for (String line : history) {
-                String[] data = line.split(",");
+        System.out.println(String.format("%-15s | %-15s | %-15s", "Amount", "Category", "Date"));
+        System.out.println("----------------------------------------------");
+        
+        for (String line : transactions) {
+            String[] data = line.split(",");
+            if (data.length >= 3) {
                 System.out.println(String.format("%-15s | %-15s | %-15s", data[0], data[1], data[2]));
             }
         }

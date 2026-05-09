@@ -39,6 +39,7 @@ public class HistoryController {
     public List<String> filterByCategory(String category) {
         List<String> all      = db.getAllTransactions();
         List<String> filtered = new ArrayList<>();
+        
          for (String line : all) {
             String[] data = line.split(",");
             if (data.length > 1 &&
@@ -68,30 +69,6 @@ public class HistoryController {
             }
         }
         return filtered;
-    }
-
-     /**
-     * Returns a summary of a given transaction list.
-     * Shows total count and total amount spent.
-     *
-     * @param transactions list of transaction strings to summarize
-     * @return formatted summary string
-     */
-
-    public String getSummary(List<String> transactions) {
-        double total = 0;
-        for (String line : transactions) {
-            String[] data = line.split(",");
-            if (data.length > 0) {
-                try {
-                    total += Double.parseDouble(data[0]);
-                } catch (NumberFormatException e) {
-                    // skip malformed lines
-                }
-            }
-        }
-        return "Total Transactions: " + transactions.size()
-                + " | Total Amount: " + total;
     }
 
 }

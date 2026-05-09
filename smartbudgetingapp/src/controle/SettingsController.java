@@ -33,8 +33,12 @@ public class SettingsController {
         if (newName.isEmpty() || newEmail.isEmpty() || newPass.length() < 6) {
             return false;
         }
+        if (newEmail.equalsIgnoreCase(oldEmail)) {
+        System.out.println("Error: New email must be different from the current email.");
+        return false;
+        }
 
-        db.updateUserSettings(oldEmail, newName, newEmail, newPass);
-        return true;
+        return db.updateUserSettings(oldEmail, newName, newEmail, newPass);
+        
     }
 }
